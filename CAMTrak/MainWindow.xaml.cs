@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CAMTrak
+namespace theprof.CAMTrak
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
