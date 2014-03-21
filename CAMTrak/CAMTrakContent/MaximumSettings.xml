@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="QuickStart.Settings">
+    <GraphicsLevel>Highest</GraphicsLevel>
+    <IsFixedTimeStep>false</IsFixedTimeStep>
+    <IsFullscreen>false</IsFullscreen>
+    <IsMultiSampling>true</IsMultiSampling>
+    <IsVerticalSynchronized>false</IsVerticalSynchronized>
+    <Resolution>1024 768</Resolution>
+    <IsShadowMapping>true</IsShadowMapping>
+    <PhysicsStepsPerSecond>60</PhysicsStepsPerSecond>
+    <EntitiesDirectory>Content/Entities</EntitiesDirectory>
+    <EntityDefinitionsDirectory>Content/Entities/EntityDefinitions</EntityDefinitionsDirectory>
+    <ComponentDefinitionsDirectory>Content/Entities/ComponentDefinitions</ComponentDefinitionsDirectory>
+  </Asset>
+</XnaContent>

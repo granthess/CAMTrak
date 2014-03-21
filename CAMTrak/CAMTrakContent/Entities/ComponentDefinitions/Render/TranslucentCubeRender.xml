@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="QuickStart.Components.RenderComponentDefinition">
+    <ModelPath></ModelPath> <!-- Leave empty if you do not want to use a model file -->
+    <MaterialPath>Material/SimpleColored</MaterialPath> <!-- Can never be left empty -->
+    <PrimitiveType>Box</PrimitiveType> <!-- Set to 'Invalid' if you do not want a primitive -->
+    <RenderOrder>RenderNormal</RenderOrder> <!-- This is the order in which this entity will render -->
+    <CanCreateShadows>true</CanCreateShadows> <!-- Set to 'true' if this render mesh can cast shadows onto other meshes -->
+    <CanReceiveShadows>true</CanReceiveShadows> <!-- Set to 'true' if this render mesh can have shadows cast onto it -->
+    <MeshColor>0.0 0.0 1.0 1.0</MeshColor> <!-- Leave as '1.0 1.0 1.0 1.0' if you're using a textured mesh -->
+    <RendersAsSky>false</RendersAsSky> <!-- Leave as 'false' unless this render component is for a sky -->
+    <Opacity>0.6</Opacity> <!-- 1.0 is fully opaque, 0.0 is completely transparent -->
+    <Height>30.0</Height> <!-- 1.0 is default, this parameter is only used if PrimitiveType is used -->
+    <Width>40.0</Width> <!-- 1.0 is default, this parameter is only used if PrimitiveType is used -->
+    <Depth>30.0</Depth> <!-- 1.0 is default, this parameter is only used if PrimitiveType is used -->
+    <Diameter>1.0</Diameter> <!-- 1.0 is default, this parameter is only used if PrimitiveType is used -->
+  </Asset>
+</XnaContent>

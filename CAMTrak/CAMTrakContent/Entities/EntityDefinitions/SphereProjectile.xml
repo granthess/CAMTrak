@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="QuickStart.Entities.ComponentDefinition[]">
+    <Item>
+      <type>RenderComponent</type>
+      <XMLDefinitionPath>Render/YellowSphereRender</XMLDefinitionPath>
+    </Item>
+    <Item>
+      <type>PhysicsComponent</type>
+      <XMLDefinitionPath>Physics/YellowSpherePhysics</XMLDefinitionPath>
+    </Item>
+  </Asset>
+</XnaContent>

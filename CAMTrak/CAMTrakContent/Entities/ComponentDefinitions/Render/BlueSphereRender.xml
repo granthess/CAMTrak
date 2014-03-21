@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="QuickStart.Components.RenderComponentDefinition">
+    <ModelPath></ModelPath> <!-- Leave empty if you do not want to use a model file -->
+    <MaterialPath>Material/SimpleColored</MaterialPath> <!-- Can never be left empty -->
+    <PrimitiveType>Sphere</PrimitiveType> <!-- Set to 'Invalid' if you do not want a primitive -->
+    <RenderOrder>RenderNormal</RenderOrder>
+    <CanCreateShadows>true</CanCreateShadows>
+    <CanReceiveShadows>true</CanReceiveShadows>
+    <MeshColor>0.3 0.3 1.0 1.0</MeshColor> <!-- Leave as '1.0 1.0 1.0 1.0' if you're using a textured mesh -->
+    <RendersAsSky>false</RendersAsSky> <!-- Leave as 'false' unless this render component is for a sky -->
+    <Opacity>1.0</Opacity> <!-- 1.0 is fully opaque, 0.0 is completely transparent -->
+    <Height>1.0</Height> <!-- 1.0 is default, this parameter is only used if PrimitiveType is used -->
+    <Width>1.0</Width> <!-- 1.0 is default, this parameter is only used if PrimitiveType is used -->
+    <Depth>1.0</Depth> <!-- 1.0 is default, this parameter is only used if PrimitiveType is used -->
+    <Diameter>1.0</Diameter> <!-- 1.0 is default, this parameter is only used if PrimitiveType is used -->
+  </Asset>
+</XnaContent>

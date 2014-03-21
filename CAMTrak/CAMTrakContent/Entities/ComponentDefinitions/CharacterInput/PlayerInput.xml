@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>  
+  <Asset Type="QuickStart.Components.CharacterInputComponentDefinition">
+    <MovementSpeed>50.0</MovementSpeed>
+    <RotationSpeed>1.5708</RotationSpeed>
+    <LeftThumbStickModifier>3.0</LeftThumbStickModifier>
+    <RightThumbStickModifier>0.05</RightThumbStickModifier>
+  </Asset>
+</XnaContent>

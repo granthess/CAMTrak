@@ -1,0 +1,46 @@
+<material effect="Water">
+  <sampler semantic="NORMAL_MAP">waterNormal</sampler>
+
+  <variable_texture2D semantic="REFLECTION_MAP" varID="ReflectionMap"/>
+  <variable_texture2D semantic="REFRACTION_MAP" varID="RefractionMap"/>
+  <variable_texture2D semantic="HEIGHT_MAP" varID="HeightMap"/>
+  <variable_texture2D semantic="CUBE_MAP" varID="CubeMap"/>
+  
+  <variable_matrix semantic="WORLD" varID="World"/>
+  <variable_matrix semantic="VIEW" varID="View"/>
+  <variable_matrix semantic="PROJECTION" varID="Projection"/>
+  <variable_matrix semantic="VIEW_PROJECTION" varID="ViewProjection"/>
+  <variable_matrix semantic="WORLD_VIEW_PROJECTION" varID="WorldViewProjection"/>
+  
+  <variable_matrix semantic="WIND_DIRECTION" varID="WindDirection"/>
+  <variable_matrix semantic="REFLECTION_VIEW" varID="ReflectionView"/>  
+    
+  <variable_float semantic="SPECULAR_POWER" varID="SpecularPower" />  
+  <variable_float semantic="REFLECTIVITY" varID="Reflectivity" />
+  <variable_float semantic="TIME" varID="TotalTime"/>
+  <variable_float semantic="MIN_TERRAIN_HEIGHT" varID="MinTerrainHeight"/>
+  <variable_float semantic="MAX_TERRAIN_HEIGHT" varID="MaxTerrainHeight"/>
+  <variable_float semantic="TERRAIN_HEIGHT_RANGE" varID="TerrainHeightRange" />
+  <variable_float semantic="TERRAIN_SCALE" varID="TerrainScale"/>
+  <variable_float semantic="TERRAIN_WIDTH" varID="TerrainWidth"/>
+  <variable_float semantic="TERRAIN_ELEVATION_MODIFIER" varID="TerrainElevationModifier"/>
+  <variable_float4 semantic="VIEW_POS" varID="ViewPos" />
+  <variable_float4 semantic="VIEW_FORWARD" varID="ViewForward"/>
+  <variable_float4 semantic="LIGHT_DIRECTION" varID="LightDir" />
+  <variable_float4 semantic="AMBIENT_COLOR" varID="AmbientColor" />
+  <variable_float4 semantic="DIFFUSE_COLOR" varID="DiffuseColor" />
+  <variable_float4 semantic="SPECULAR_COLOR" varID="SpecularColor" />
+  <variable_float semantic="FOG_NEAR" varID="FogNear" />
+  <variable_float semantic="FOG_FAR" varID="FogFar" />
+  <variable_float semantic="FOG_DISTANCE_RANGE" varID="FogDistanceRange" />
+  <variable_float semantic="FOG_ALTITUDE" varID="FogAltitude" />
+  <variable_float semantic="FOG_THINNING" varID="FogThinning" />
+  <variable_float4 semantic="FOG_COLOR" varID="FogColor" />
+
+  <constant_float4 semantic="WATER_COLOR">1.0, 1.0, 1.0, 1.0</constant_float4>
+
+  <constant_float semantic="WAVE_LENGTH">0.5</constant_float>
+  <constant_float semantic="WAVE_HEIGHT">0.3</constant_float>
+  <constant_float semantic="WIND_FORCE">4.0</constant_float>
+</material>
+

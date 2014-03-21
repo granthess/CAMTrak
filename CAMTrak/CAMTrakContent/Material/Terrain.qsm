@@ -1,0 +1,41 @@
+﻿<material effect="Terrain">
+  <sampler semantic="TEXTURE_MAP">../Images/TerrainMaps/gcanyonTerrain</sampler>
+  <sampler semantic="GRASS_TEXTURE">grass</sampler>
+  <sampler semantic="SAND_TEXTURE">sand</sampler>
+  <sampler semantic="ROCK_TEXTURE">rock</sampler>
+  <sampler semantic="GRASS_NORMAL">grassNormal</sampler>
+  <sampler semantic="SAND_NORMAL">sandNormal</sampler>
+  <sampler semantic="ROCK_NORMAL">rockNormal</sampler>
+
+  <variable_texture2D semantic="SHADOW_MAP" varID="ShadowMap"/>
+
+  <variable_matrix semantic="LIGHTVIEWPROJECTION" varID="LightViewProjection"/>
+  <variable_matrix semantic="WORLDVIEWPROJECTION" varID="WorldViewProjection"/>
+  <variable_matrix semantic="WORLD" varID="World"/>
+  <variable_matrix semantic="VIEW" varID="View"/>
+  <variable_matrix semantic="PROJECTION" varID="Projection"/>
+  <variable_float4 semantic="VIEW_FORWARD" varID="ViewForward"/>
+  <variable_float4 semantic="VIEW_POS" varID="ViewPos" />
+  <variable_float4 semantic="LIGHT_DIRECTION" varID="LightDir" />
+  <variable_float4 semantic="AMBIENT_COLOR" varID="AmbientColor" />
+  <variable_float4 semantic="SPECULAR_COLOR" varID="SpecularColor" />
+  <variable_float semantic="SPECULAR_POWER" varID="SpecularPower" />
+  <variable_float4 semantic="DIFFUSE_COLOR" varID="DiffuseColor" />  
+
+  <constant_float semantic="SCALE_FACTOR">4</constant_float>
+  <constant_float semantic="TERRAIN_WIDTH">1024</constant_float>
+  <variable_float semantic="FOG_NEAR" varID="FogNear" />
+  <variable_float semantic="FOG_FAR" varID="FogFar" />  
+  <variable_float semantic="FOG_ALTITUDE" varID="FogAltitude" />
+  <variable_float semantic="FOG_THINNING" varID="FogThinning" />
+  <variable_float4 semantic="FOG_COLOR" varID="FogColor" />
+
+  <variable_float semantic="WATER_ELEVATION" varID="WaterElevation" />
+  <variable_float4 semantic="WATER_COLOR_LIGHT" varID="WaterColorLight" />
+  <variable_float4 semantic="WATER_COLOR_DARK" varID="WaterColorDark" />
+
+  <variable_bool semantic="USING_CLIPPING_PLANE" varID="UsingClippingPlane" />
+  <variable_float4 semantic="CLIPPING_PLANE" varID="ClippingPlane" />
+
+  <variable_bool semantic="CAMERA_UNDERWATER" varID="CameraUnderwater" />
+</material>

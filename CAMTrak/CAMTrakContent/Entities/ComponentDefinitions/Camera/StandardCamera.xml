@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>  
+  <Asset Type="QuickStart.Components.CameraComponentDefinition">    
+    <AspectRatio>0.0</AspectRatio> <!-- Specifying 0.0 lets the engine default the aspect ratio to the window size -->
+    <StartingZoomLevel>1</StartingZoomLevel>
+    <DefaultFOV>56.0</DefaultFOV> <!-- Specifying 0.0 forces the engine to use the default value -->
+    <StartingFOV>56.0</StartingFOV> <!-- Specifying 0.0 forces the engine to use the default value -->
+    <NearPlane>0.5</NearPlane> <!-- Specifying 0.0 forces the engine to use the default value -->
+    <FarPlane>2000.0</FarPlane> <!-- Specifying 0.0 forces the engine to use the default value -->
+    <ForceFrustumAboveTerrain>true</ForceFrustumAboveTerrain>
+  </Asset>
+</XnaContent>

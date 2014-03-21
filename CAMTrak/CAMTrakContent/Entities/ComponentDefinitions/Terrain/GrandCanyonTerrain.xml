@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>  
+  <Asset Type="QuickStart.Components.TerrainComponentDefinition">
+    <HeightMapImagePath>./Images/Heightmaps/gcanyon2</HeightMapImagePath>
+    <ScaleFactor>4</ScaleFactor>
+    <SmoothingPasses>2</SmoothingPasses>
+    <ElevationStrength>75</ElevationStrength>
+  </Asset>
+</XnaContent>

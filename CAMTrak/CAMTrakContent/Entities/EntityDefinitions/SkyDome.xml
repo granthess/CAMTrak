@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="QuickStart.Entities.ComponentDefinition[]">
+    <Item>
+      <type>RenderComponent</type>
+      <XMLDefinitionPath>Render/SkyDomeRender</XMLDefinitionPath>
+    </Item>
+    <Item>
+      <type>SkyDomeComponent</type>
+      <XMLDefinitionPath>SkyDome/BasicSky</XMLDefinitionPath>
+    </Item>
+    <Item>
+      <type>ConstantRotationComponent</type>
+      <XMLDefinitionPath>ConstantRotation/SlowlyRotateAroundWorldY</XMLDefinitionPath>
+    </Item>
+  </Asset>
+</XnaContent>

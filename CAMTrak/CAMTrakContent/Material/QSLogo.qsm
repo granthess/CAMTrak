@@ -1,0 +1,5 @@
+﻿<material effect="Solid">
+  <sampler semantic="DIFFUSE_MAP">logo</sampler>
+  <variable_matrix semantic="WORLDVIEWPROJECTION" varID="WorldViewProjection"/>
+</material>
+

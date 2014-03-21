@@ -1,0 +1,19 @@
+<material effect="ParticleEffect">
+  <sampler semantic="TEXTURE">rainDrop</sampler>
+  <variable_matrix semantic="WORLD" varID="World"/>
+  <variable_matrix semantic="VIEW" varID="View"/>
+  <variable_matrix semantic="PROJECTION" varID="Projection"/>  
+  <variable_float semantic="TIME" varID="TotalTime"/>
+  <variable_float semantic="DURATION" varID="Duration"/>
+  <variable_float semantic="END_VELOCITY" varID="EndVelocity"/>
+  <variable_float semantic="DURATION_RANDOMNESS" varID="DurationRandomness"/>
+  <variable_float semantic="LIGHT_BRIGHTNESS" varID="LightBrightness"/>
+  <variable_float2 semantic="VIEWPORT_SCALE" varID="ViewportScale"/>
+  <variable_float2 semantic="ROTATE_SPEED" varID="RotateSpeed"/>
+  <variable_float2 semantic="START_SIZE" varID="StartSize"/>
+  <variable_float2 semantic="END_SIZE" varID="EndSize"/>
+  <variable_float3 semantic="GRAVITY" varID="Gravity"/>  
+  <variable_float4 semantic="MIN_COLOR" varID="MinColor"/>
+  <variable_float4 semantic="MAX_COLOR" varID="MaxColor"/>  
+  <variable_float semantic="WATER_ELEVATION" varID="WaterElevation" />
+</material>

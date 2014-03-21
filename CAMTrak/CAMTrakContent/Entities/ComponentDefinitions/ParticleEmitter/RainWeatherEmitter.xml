@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="QuickStart.Components.ParticleEmitterComponentDefinition">
+    <MaterialPath>Material/Particles/RainParticle</MaterialPath>
+    <MaxParticles>12000</MaxParticles>
+    <Duration>PT1.7S</Duration>
+    <DurationRandomness>0</DurationRandomness>
+    <EmitterVelocitySensitivity>1</EmitterVelocitySensitivity>
+    <MinHorizontalVelocity>0</MinHorizontalVelocity>
+    <MaxHorizontalVelocity>1</MaxHorizontalVelocity>
+    <MinVerticalVelocity>0</MinVerticalVelocity>
+    <MaxVerticalVelocity>0</MaxVerticalVelocity>
+    <Gravity>0 -260 0</Gravity>
+    <EndVelocity>38</EndVelocity>
+    <MinColor>AAFFFFFF</MinColor>
+    <MaxColor>AAFFFFFF</MaxColor>
+    <MinColorVect>0 0 0 0</MinColorVect>    <!-- NOT USED IN XML-->
+    <MaxColorVect>0 0 0 0</MaxColorVect>    <!-- NOT USED IN XML-->
+    <MinRotateSpeed>0</MinRotateSpeed>
+    <MaxRotateSpeed>0</MaxRotateSpeed>
+    <RotateSpeed>0 0</RotateSpeed>    <!-- NOT USED IN XML-->
+    <MinStartSize>1</MinStartSize>
+    <MaxStartSize>2.3</MaxStartSize>
+    <StartSize>0 0</StartSize>    <!-- NOT USED IN XML-->
+    <MinEndSize>1</MinEndSize>
+    <MaxEndSize>5.3</MaxEndSize>
+    <EndSize>0 0</EndSize>    <!-- NOT USED IN XML-->
+    <SourceBlend>SourceAlpha</SourceBlend>
+    <DestinationBlend>InverseSourceAlpha</DestinationBlend>
+  </Asset>
+</XnaContent>

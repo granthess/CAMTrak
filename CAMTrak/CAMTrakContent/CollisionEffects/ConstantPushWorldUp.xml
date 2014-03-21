@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="QuickStart.Components.CollisionEffectDefinition[]">
+    <Item>
+      <EffectUniqueID>0</EffectUniqueID>
+      <CollisionEffectType>ConstantPushEffect</CollisionEffectType>
+      <IsDirectional>true</IsDirectional>
+      <Direction>0 1 0</Direction>
+      <Strength>500</Strength>
+    </Item>
+  </Asset>
+</XnaContent>

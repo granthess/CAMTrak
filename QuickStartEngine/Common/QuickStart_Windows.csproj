@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectGuid>{E82BE082-C272-4AE2-97BC-944BBD73703B}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuickStart</RootNamespace>
+    <AssemblyName>QuickStart</AssemblyName>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <XnaCrossPlatformGroupID>86e087b7-cc4e-4082-a6ff-655d41044fc2</XnaCrossPlatformGroupID>
+    <XnaUpgrade>
+    </XnaUpgrade>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <XnaOutputType>Library</XnaOutputType>
+    <XnaProfile>HiDef</XnaProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\target\Windows\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\target\Windows\Release\</OutputPath>
+    <DefineConstants>TRACE%3bWINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <XnaCompressContent>True</XnaCompressContent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BEPUphysicsDrawer, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\BEPUphysicsDrawer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Avatar, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Input.Touch, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Video, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Nuclex.Input">
+      <HintPath>..\..\3rdPartyLibraries\Nuclex.GUI\Nuclex.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Nuclex.UserInterface">
+      <HintPath>..\..\3rdPartyLibraries\Nuclex.GUI\Nuclex.UserInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Audio\AudioManager.cs" />
+    <Compile Include="Audio\Cue3D.cs" />
+    <Compile Include="Audio\CueVariable.cs" />
+    <Compile Include="BaseManager.cs" />
+    <Compile Include="Components\ComponentLoadingDefinitions\ComponentDefinitions.cs" />
+    <Compile Include="Components\ConstantMovementComponent.cs" />
+    <Compile Include="Components\ConstantRotationComponent.cs" />
+    <Compile Include="Components\InputComponents\CharacterInputComponent.cs" />
+    <Compile Include="Components\PhysicsComponents\CharacterPhysicsComponent.cs" />
+    <Compile Include="Components\PhysicsComponents\TerrainPhysicsComponent.cs" />
+    <Compile Include="Components\PhysicsComponents\PhantomPhysicsComponent.cs" />
+    <Compile Include="Components\PhysicsComponents\WaterVolumePhysicsComponent.cs" />
+    <Compile Include="Components\SkyComponents\SkyComponent.cs" />
+    <Compile Include="Components\SkyComponents\SkyDomeComponent.cs" />
+    <Compile Include="Components\TriggerComponents\CollisionTriggerComponent.cs" />
+    <Compile Include="Components\WaterComponent.cs" />
+    <Compile Include="Entities\ComponentDefinition.cs" />
+    <Compile Include="Entities\EntityDefinition.cs" />
+    <Compile Include="Entities\EntityLoader.cs" />
+    <Compile Include="Entities\NavMesh\NavMeshChunk.cs" />
+    <Compile Include="Entities\NavMesh\NavMeshNode.cs" />
+    <Compile Include="EnvironmentalSettings\FogSettings.cs" />
+    <Compile Include="GeometricPrimitives\BezierPrimitive.cs" />
+    <Compile Include="GeometricPrimitives\ConePrimitive.cs" />
+    <Compile Include="GeometricPrimitives\CubePrimitive.cs" />
+    <Compile Include="GeometricPrimitives\CylinderPrimitive.cs" />
+    <Compile Include="GeometricPrimitives\GeometricPrimitive.cs" />
+    <Compile Include="GeometricPrimitives\SpherePrimitive.cs" />
+    <Compile Include="GeometricPrimitives\TeapotPrimitive.cs" />
+    <Compile Include="GeometricPrimitives\TorusPrimitive.cs" />
+    <Compile Include="Graphics\ChunkTypes\LightChunk.cs" />
+    <Compile Include="Graphics\ChunkTypes\ParticleChunk.cs" />
+    <Compile Include="Graphics\ChunkTypes\WaterChunk.cs" />
+    <Compile Include="Graphics\CustomVertexTypes\VertexPositionNormal.cs" />
+    <Compile Include="GUI\GuiManager.cs" />
+    <Compile Include="Input\InputTypeEqualityComparers.cs" />
+    <Compile Include="Input\InputInterface.cs" />
+    <Compile Include="Geometry\LineSegment.cs" />
+    <Compile Include="Physics\BEPUWrapper\BasicBEPUActor.cs" />
+    <Compile Include="Physics\BEPUWrapper\BEPUPhysicsManager.cs" />
+    <Compile Include="Physics\BEPUWrapper\BEPUScene.cs" />
+    <Compile Include="Physics\BEPUWrapper\BEPUActor.cs" />
+    <Compile Include="Physics\BEPUWrapper\CharacterBEPUActor.cs" />
+    <Compile Include="Physics\BEPUWrapper\StaticBEPUActor.cs" />
+    <Compile Include="Physics\BEPUWrapper\WaterVolumeBEPUActor.cs" />
+    <Compile Include="Physics\BEPUWrapper\TerrainBEPUActor.cs" />
+    <Compile Include="Physics\ConeShapeDesc.cs" />
+    <Compile Include="Physics\CylinderShapeDesc.cs" />
+    <Compile Include="Physics\PhysicsInterface.cs" />
+    <Compile Include="Physics\PhysicsMessages.cs" />
+    <Compile Include="Physics\QSBody.cs" />
+    <Compile Include="Physics\PhysicsRenderManager.cs" />
+    <Compile Include="Components\ParticleEmitterComponents\ParticleEmitterComponent.cs" />
+    <Compile Include="ParticleSystem\ParticleVertex.cs" />
+    <Compile Include="Physics\CapsuleShapeDesc.cs" />
+    <Compile Include="Physics\CollisionEffects\CollisionEffect.cs" />
+    <Compile Include="Physics\CollisionEffects\ConstantCollisionEffects\ConstantCollisionEffect.cs" />
+    <Compile Include="Physics\CollisionEffects\ConstantCollisionEffects\ConstantPushEffect.cs" />
+    <Compile Include="Physics\EntityCollisionInfo.cs" />
+    <Compile Include="Components\BaseComponent.cs" />
+    <Compile Include="Components\CameraComponent.cs" />
+    <Compile Include="Components\InputComponents\ArcBallCameraInputComponent.cs" />
+    <Compile Include="Components\InputComponents\BaseInputComponent.cs" />
+    <Compile Include="Components\InputComponents\FreeCameraInputComponent.cs" />
+    <Compile Include="Components\LightEmitterComponent.cs" />
+    <Compile Include="Components\PhysicsComponents\PhysicsComponent.cs" />
+    <Compile Include="Components\RenderComponents\RenderComponent.cs" />
+    <Compile Include="Compositor\Screens\StatsScreen.cs" />
+    <Compile Include="Compositor\Screens\FPSScreen.cs" />
+    <Compile Include="Compositor\ScreenCompositor.cs" />
+    <Compile Include="Compositor\IScreen.cs" />
+    <Compile Include="Configuration\ConfigurationManager.cs" />
+    <Compile Include="Configuration\Settings.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\NavMesh\NavMesh.cs" />
+    <Compile Include="Entities\NavMesh\NavMeshGenerator.cs" />
+    <Compile Include="Messaging\EntityMessages.cs" />
+    <Compile Include="Components\TerrainComponents\QuadTree.cs" />
+    <Compile Include="Components\TerrainComponents\TerrainComponent.cs" />
+    <Compile Include="Entities\TerrainPatch.cs" />
+    <Compile Include="Graphics\GraphicsSettings.cs" />
+    <Compile Include="Graphics\GraphicsSystem.cs" />
+    <Compile Include="Graphics\IRenderChunkProvider.cs" />
+    <Compile Include="Graphics\Material.cs" />
+    <Compile Include="Graphics\MaterialReader.cs" />
+    <Compile Include="Graphics\ChunkTypes\GeometryChunk.cs" />
+    <Compile Include="Graphics\RenderPassDesc.cs" />
+    <Compile Include="Graphics\StaticModel.cs" />
+    <Compile Include="Graphics\StaticModelReader.cs" />
+    <Compile Include="Input\GamePadDataTypes.cs" />
+    <Compile Include="Input\GamePadHandler.cs" />
+    <Compile Include="Input\InputHandler.cs" />
+    <Compile Include="Input\InputManager.cs" />
+    <Compile Include="Input\InputPoller\InputButton.cs" />
+    <Compile Include="Input\InputPoller\InputPollingHandler.cs" />
+    <Compile Include="Input\KeyboardHandler.cs" />
+    <Compile Include="Input\KeyData.cs" />
+    <Compile Include="Input\KeyMessage.cs" />
+    <Compile Include="Input\MouseButton.cs" />
+    <Compile Include="Input\MouseHandler.cs" />
+    <Compile Include="Camera\CameraInterface.cs" />
+    <Compile Include="Physics\SegmentIntersectInfo.cs" />
+    <Compile Include="QSInterface.cs" />
+    <Compile Include="IPoolItem.cs" />
+    <Compile Include="Messaging\ExitMessage.cs" />
+    <Compile Include="Messaging\IMessage.cs" />
+    <Compile Include="Messaging\Message.cs" />
+    <Compile Include="Messaging\MessageType.cs" />
+    <Compile Include="ModelLoader.cs" />
+    <Compile Include="ObjectPool.cs" />
+    <Compile Include="Physics\ActorDesc.cs" />
+    <Compile Include="Physics\BoxShapeDesc.cs" />
+    <Compile Include="Physics\HeightFieldShapeDesc.cs" />
+    <Compile Include="Physics\IPhysicsActor.cs" />
+    <Compile Include="Physics\IPhysicsScene.cs" />
+    <Compile Include="Physics\PhysicsManager.cs" />
+    <Compile Include="Physics\ShapeDesc.cs" />
+    <Compile Include="Physics\SphereShapeDesc.cs" />
+    <Compile Include="Physics\TriangleMeshShapeDesc.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyName.cs" />
+    <Compile Include="QSActivator.cs" />
+    <Compile Include="QSConstants.cs" />
+    <Compile Include="QSGame.cs" />
+    <Compile Include="Math\QSMathHelper.cs" />
+    <Compile Include="QSMotionHelper.cs" />
+    <Compile Include="Scenes\Scene.cs" />
+    <Compile Include="Scenes\SceneManager.cs" />
+    <Compile Include="QSUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <NestedContentProject Include="Content\Content.contentproj">
+      <Project>a2a17bfe-a2cb-4d24-ad4a-ae9925e96fbf</Project>
+      <Visible>False</Visible>
+    </NestedContentProject>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Configuration.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Xna.Framework.3.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft XNA Framework Redistributable 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Xna.Framework.4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft XNA Framework Redistributable 4.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BEPUphysics\BEPUphysics.csproj">
+      <Project>{2A9D2227-78D7-4804-B6D1-560BB43AE911}</Project>
+      <Name>BEPUphysics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ContentPipeline\QuickStart.ContentPipeline.csproj">
+      <Project>{3515BE14-EFD6-4F34-BB81-59D27E26B5BE}</Project>
+      <Name>QuickStart.ContentPipeline</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BEPUphysicsDrawer.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nuclex.Input.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nuclex.Support.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Nuclex.UserInterface.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="nunit.framework.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SlimDX.DirectInput.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" Condition="" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

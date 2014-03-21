@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="QuickStart.Components.ParticleEmitterComponentDefinition">
+    <MaterialPath>Material/Particles/SnowParticle</MaterialPath>
+    <MaxParticles>10000</MaxParticles>
+    <Duration>PT4S</Duration>
+    <DurationRandomness>0</DurationRandomness>
+    <EmitterVelocitySensitivity>1</EmitterVelocitySensitivity>
+    <MinHorizontalVelocity>-2</MinHorizontalVelocity>
+    <MaxHorizontalVelocity>2</MaxHorizontalVelocity>
+    <MinVerticalVelocity>0</MinVerticalVelocity>
+    <MaxVerticalVelocity>0</MaxVerticalVelocity>
+    <Gravity>0 -45 0</Gravity>
+    <EndVelocity>30</EndVelocity>
+    <MinColor>FFFFFFFF</MinColor>
+    <MaxColor>FFFFFFFF</MaxColor>
+    <MinColorVect>0 0 0 0</MinColorVect>    <!-- NOT USED IN XML-->
+    <MaxColorVect>0 0 0 0</MaxColorVect>    <!-- NOT USED IN XML-->
+    <MinRotateSpeed>-1</MinRotateSpeed>
+    <MaxRotateSpeed>1</MaxRotateSpeed>
+    <RotateSpeed>0 0</RotateSpeed>    <!-- NOT USED IN XML-->
+    <MinStartSize>.3</MinStartSize>
+    <MaxStartSize>2.3</MaxStartSize>
+    <StartSize>0 0</StartSize>    <!-- NOT USED IN XML-->
+    <MinEndSize>1</MinEndSize>
+    <MaxEndSize>4.3</MaxEndSize>
+    <EndSize>0 0</EndSize>    <!-- NOT USED IN XML-->
+    <SourceBlend>SourceAlpha</SourceBlend>
+    <DestinationBlend>InverseSourceAlpha</DestinationBlend>
+  </Asset>
+</XnaContent>
