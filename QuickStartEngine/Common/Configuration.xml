@@ -10,13 +10,13 @@
   </managers>
 
   <windowsOnlyManagers>
-    <manager value="QuickStart.Physics.PhysicsRenderManager" />
+	<manager value="QuickStart.Physics.PhysicsRenderManager" />
   </windowsOnlyManagers>
 
   <inputmanager>
     <handler value="QuickStart.KeyboardHandler" />
-    <handler value="QuickStart.MouseHandler" />
-	  <handler value="QuickStart.GamePadHandler" />
+    <!-- <handler value="QuickStart.MouseHandler" /> -->
+    <handler value="QuickStart.GamePadHandler" />
   </inputmanager>
 
 </configuration>

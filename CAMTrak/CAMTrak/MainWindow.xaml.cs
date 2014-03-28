@@ -13,6 +13,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Xna.Framework;
 using theprof.CAMTrak.XNAView;
+using QuickStart.Physics;
+using QuickStart.Interfaces;
 
 namespace theprof.CAMTrak
 {
@@ -29,6 +31,15 @@ namespace theprof.CAMTrak
             InitializeComponent();
 
             m_game = new EditorWindow(xnaControl1.Handle, "Content");
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            PhysicsInterface physics = this.m_game.SceneManager.GetInterface(InterfaceType.Physics) as PhysicsInterface;
+
+            physics.Shutdown();
+
+            m_game.Exit();
         }
     }
 }
