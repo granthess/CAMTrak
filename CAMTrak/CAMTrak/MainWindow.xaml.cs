@@ -24,22 +24,28 @@ namespace theprof.CAMTrak
     public partial class MainWindow : Window
     {
 
-        EditorWindow m_game;
+        EditorWindow editor_game;
+        MapWindow map_game;
+        
 
         public MainWindow()
         {
             InitializeComponent();
 
-            m_game = new EditorWindow(xnaControl1.Handle, "Content");
+            editor_game = new EditorWindow(xnaControl1.Handle, "Content");
+            map_game = new MapWindow(xnaControl2.Handle, "Content");
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            PhysicsInterface physics = this.m_game.SceneManager.GetInterface(InterfaceType.Physics) as PhysicsInterface;
+            PhysicsInterface editor_physics = this.editor_game.SceneManager.GetInterface(InterfaceType.Physics) as PhysicsInterface;
+            editor_physics.Shutdown();
 
-            physics.Shutdown();
+            PhysicsInterface map_physics = this.map_game.SceneManager.GetInterface(InterfaceType.Physics) as PhysicsInterface;
+            map_physics.Shutdown();
 
-            m_game.Exit();
+            editor_game.Exit();
+            map_game.Exit();
         }
     }
 }
