@@ -1,5 +1,0 @@
-﻿<material effect="Solid">
-  <sampler semantic="DIFFUSE_MAP">grass</sampler>
-  <variable_matrix semantic="WORLDVIEWPROJECTION" varID="WorldViewProjection"/>
-</material>
-

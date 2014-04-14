@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<XnaContent>
-  <Asset Type="QuickStart.Entities.ComponentDefinition[]">
-    <Item>
-      <type>LightEmitterComponent</type>
-      <XMLDefinitionPath>Light/BasicDirectionalLight</XMLDefinitionPath>
-    </Item>
-  </Asset>
-</XnaContent>

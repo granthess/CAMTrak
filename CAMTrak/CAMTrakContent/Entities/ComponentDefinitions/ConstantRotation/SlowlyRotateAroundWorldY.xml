@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<XnaContent>
-  <Asset Type="QuickStart.Components.ConstantRotationComponentDefinition">
-    <AmountXAxisPerSecond>0.0</AmountXAxisPerSecond>
-    <AmountYAxisPerSecond>0.003</AmountYAxisPerSecond>
-    <AmountZAxisPerSecond>0.0</AmountZAxisPerSecond>
-  </Asset>
-</XnaContent>

@@ -1,7 +1,0 @@
-<material effect="Wireframe">
-  <variable_matrix semantic="WORLDVIEWPROJECTION" varID="WorldViewProjection"/>
-  <constant_float4 semantic="AMBIENT_COLOR">1.0, 0.0, 0.0, 1.0</constant_float4>
-
-  <variable_bool semantic="USING_CLIPPING_PLANE" varID="UsingClippingPlane" />
-  <variable_float4 semantic="CLIPPING_PLANE" varID="ClippingPlane" />
-</material>
