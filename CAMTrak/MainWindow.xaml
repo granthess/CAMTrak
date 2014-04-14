@@ -1,8 +1,28 @@
 ﻿<Window x:Class="CAMTrak.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="374*" />
+            <ColumnDefinition Width="129*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="244*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ToolBarTray Grid.ColumnSpan="2" MinHeight="26" HorizontalAlignment="Stretch"  Name="toolBarTray1" VerticalAlignment="Top"  />
+        <StackPanel Grid.Row="1" Orientation="Vertical" Background="#FF4A6184">
+            
+        </StackPanel>
+        <StackPanel Grid.Row="1"  Grid.Column="1"  Orientation="Vertical" Background="#FF4A6184">
+            <xctk:ZoomboxViewFinderDisplay HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="120"/>
+            <HeaderedContentControl Header="Properties" Background="#FF4A6184" Foreground="White">
+            <xctk:PropertyGrid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </HeaderedContentControl>
+        </StackPanel>        
+        <StatusBar Grid.Row="2" Grid.ColumnSpan="2" MinHeight="23" HorizontalAlignment="Stretch" Name="statusBar1" VerticalAlignment="Top" />
     </Grid>
 </Window>
