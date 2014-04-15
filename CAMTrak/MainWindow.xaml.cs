@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CAMTrak.ViewModel;
+using CAMTrak.Model;
 
 namespace CAMTrak
 {
@@ -19,9 +21,20 @@ namespace CAMTrak
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainViewModel VM { get { return DataContext as MainViewModel; } }
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel(this);
+        }
+
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+            VM.CurrentItem = ((sender as Rectangle).DataContext as ITrackItem);
+
+
+            e.Handled = true;
         }
     }
 }
