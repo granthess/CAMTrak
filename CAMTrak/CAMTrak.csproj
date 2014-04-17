@@ -88,7 +88,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\EditDocument.cs" />
-    <Compile Include="Model\Flippy.cs" />
     <Compile Include="Model\IDragHandle.cs" />
     <Compile Include="Model\ITrackItem.cs" />
     <Compile Include="Model\TrackItemBase.cs" />

@@ -61,12 +61,14 @@ namespace CAMTrak.Model
         private GeometryGroup SchematicGeometry;
         private GeometryGroup DetailGeometry;
 
-        public TrackItemBase()
+        private EditDocument Parent;
+
+        public TrackItemBase(EditDocument Parent)
         {
+            this.Parent = Parent;
+
             Control = new ContentPresenter();
             Control.MouseDown += new System.Windows.Input.MouseButtonEventHandler(Control_MouseDown);
-
-  
 
             Width = 100;
             Height = 50;
@@ -76,16 +78,7 @@ namespace CAMTrak.Model
 
         void Control_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (e.RightButton == System.Windows.Input.MouseButtonState.Pressed)
-            {
-                Width += 25;
-                Height += 10;
-            }
-            else
-            {
-                Top += 50;
-                Left += 21;
-            }
+            Parent.CurrentItem = this;
         }
 
         private void UpdateSize()
@@ -112,10 +105,12 @@ namespace CAMTrak.Model
             img.VerticalAlignment = VerticalAlignment.Top;
             img.Width = Width+4;
             img.Height = Height+4;
+            
 
             (Control as ContentPresenter).Content = img;  
         }
 
+        
         public virtual void GenerateOutlineGeometry()
         {
             OutlineGeometry = new GeometryGroup();                

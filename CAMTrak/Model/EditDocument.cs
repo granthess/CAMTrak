@@ -74,6 +74,14 @@ namespace CAMTrak.Model
             Set<ObservableCollection<ITrackItem>>("Items", ref _Items, value);
         }
         public ObservableCollection<ITrackItem> Items { get { return _Items; } set { SetItems(value); } }
+
+        private ITrackItem _CurrentItem;
+        private void SetCurrentItem(ITrackItem value)
+        {
+            Set<ITrackItem>("CurrentItem", ref _CurrentItem, value);
+        }
+        public ITrackItem CurrentItem { get { return _CurrentItem; } set { SetCurrentItem(value); } }
+
         #endregion
 
 
@@ -161,7 +169,7 @@ namespace CAMTrak.Model
 
         private void GenerateSomeItems()
         {
-            TrackItemBase item = new TrackItemBase();
+            TrackItemBase item = new TrackItemBase(this);
             item.Left = 41;
             item.Top = 99;
             item.Width = 412;

@@ -31,13 +31,19 @@ namespace CAMTrak
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
             
-            VM.CurrentItem = ((sender as Rectangle).DataContext as ITrackItem);
+            VM.CurrentDocument.CurrentItem = ((sender as Rectangle).DataContext as ITrackItem);
 
 
             e.Handled = true;
         }
 
+        private void dockingManager1_ActiveContentChanged(object sender, EventArgs e)
+        {
+            var ActiveItem = dockingManager1.ActiveContent;
 
+            if (ActiveItem is EditDocument)
+                VM.CurrentDocument = ActiveItem as EditDocument;
+        }
 
 
     }

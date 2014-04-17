@@ -49,9 +49,9 @@
             BorderBrush="Black"
             BorderThickness="1"
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            DocumentsSource="{Binding Documents}"
-            Name="dockingManager1">
+            VerticalAlignment="Stretch"         
+            Name="dockingManager1"            
+            DocumentsSource="{Binding Documents}" ActiveContentChanged="dockingManager1_ActiveContentChanged">
             
             <xcad:DockingManager.DocumentHeaderTemplate>
                 <DataTemplate>
@@ -101,8 +101,8 @@
                             AutoHideWidth="240">
                                 <xctk:PropertyGrid 
                                     NameColumnWidth="110" 
-                                    SelectedObject="{Binding CurrentItem }" 
-                                    SelectedObjectName="{Binding CurrentItem.Name}"
+                                    SelectedObject="{Binding CurrentDocument.CurrentItem }" 
+                                    SelectedObjectName="{Binding  CurrentDocument.CurrentItem.Name}"
                                   />
                             </xcad:LayoutAnchorable>
                         </xcad:LayoutAnchorablePane>

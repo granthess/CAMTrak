@@ -28,14 +28,9 @@ namespace CAMTrak.ViewModel
     public class MainViewModel : ViewModelBase
     {
         public MainWindow window { get; private set; }
-        public Model.Flippy George { get; set; }
-
+        
         private EditDocument _CurrentDocument;
         public EditDocument CurrentDocument { get { return _CurrentDocument; } set { Set<EditDocument>("CurrentDocument", ref _CurrentDocument, value); } }
-
-        private ITrackItem _CurrentItem;
-        public ITrackItem CurrentItem { get { return _CurrentItem; } set { Set<ITrackItem>("CurrentItem", ref _CurrentItem, value); } }
-
 
         private ObservableCollection<EditDocument> _Documents;
         public ObservableCollection<EditDocument> Documents
@@ -53,8 +48,7 @@ namespace CAMTrak.ViewModel
             this.window = window;
             Documents = new ObservableCollection<EditDocument>();
             SetupCommands();
-            George = new Model.Flippy();
-
+        
             window.dockingManager1.DocumentClosing += new System.EventHandler<Xceed.Wpf.AvalonDock.DocumentClosingEventArgs>(dockingManager1_DocumentClosing);
 
             ////if (IsInDesignMode)
