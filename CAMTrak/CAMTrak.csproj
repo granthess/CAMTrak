@@ -91,7 +91,7 @@
     <Compile Include="Model\Flippy.cs" />
     <Compile Include="Model\IDragHandle.cs" />
     <Compile Include="Model\ITrackItem.cs" />
-    <Compile Include="Model\TrackItemGeneric.cs" />
+    <Compile Include="Model\TrackItemBase.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">

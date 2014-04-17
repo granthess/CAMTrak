@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using Xceed.Wpf.Toolkit.PropertyGrid;
+using System.Windows.Controls;
+using System.Windows;
 
 
 namespace CAMTrak.Model
@@ -12,12 +14,12 @@ namespace CAMTrak.Model
     {
 
 
-        int Width { get; set; }
-        int Height { get; set; }
-        int Left { get; set; }
-        int Top { get; set; }
+        double Width { get; set; }
+        double Height { get; set; }
+        double Left { get; set; }
+        double Top { get; set; }
 
-        ObservableCollection<IDragHandle> Handles { get; }
-        
+        UIElement Control { get; }
+
     }
 }
