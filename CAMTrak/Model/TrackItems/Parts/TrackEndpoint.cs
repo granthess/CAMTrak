@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CAMTrak.Model.Trackbed;
 using GalaSoft.MvvmLight;
 using CAMTrak.Model.Events;
+using CAMTrak.MathUtils;
 
 namespace CAMTrak.Model.TrackItems.Parts
 {
@@ -14,54 +14,13 @@ namespace CAMTrak.Model.TrackItems.Parts
     /// and is often used to control the size and location of the TrackItem.
     /// 
     /// </summary>
-    /// <remarks>
-    /// Contains a TrackbedProperties instance that is shared between the two
-    /// TrackItem intances.  When a connection is made, the TrackbedProperties value
-    /// is copied (by reference) from the stationary item to the moving item.
-    /// 
-    /// Contains an X,Y, Altitude coordinate of where the endpoint is on the map.
-    /// 
-    /// Contains an X,Y coordinate of the B-Spline control handle for the point.
-    /// If the track item is not a B-Spline type, the control handle is calculated
-    /// and locked to provide a smooth connection.  This is how items are rotated
-    /// to match when connecting.
-    /// 
-    /// Contains a reference to another endpoint which is null when not connected.
-    /// 
-    /// Contains an ID to allow for quick lookup in the TrackItem's Endpoints
-    /// dictionary.  
-    /// 
-    /// Contains a bool specifying if it is a primary or secondary endpoint.  Only 
-    /// two endpoints in a trackitem may be specified as primary.  When rotating a
-    /// track item, the rotation is based on the line between the two primary endpoints.
-    /// </remarks>
+
     #endregion
     public class TrackEndpoint : ViewModelBase
     {
 
         #region Notified Properties
-        private TrackbedProperties _Trackbed;
-        private void SetTrackbed(TrackbedProperties value) //TODO: rethink this
-        {
-            Set<TrackbedProperties>("Trackbed", ref _Trackbed, value);
-            
-            // If we are connected, update the other half of the connection, but don't
-            // update if it is already set, otherwise it will infinite loop.
-            if ((ConnectedEndpoint != null) && (ConnectedEndpoint.Trackbed != value))
-            {
-                ConnectedEndpoint.Trackbed = value;
-            }
-        }        
-        public TrackbedProperties Trackbed { get { return _Trackbed; } set { SetTrackbed(value); } }
-
-
-        private TrackEndpoint _ConnectedEndpoint;
-        private void SetConnectedEndpoint(TrackEndpoint value)
-        {
-            Set<TrackEndpoint>("ConnectedEndpoint", ref _ConnectedEndpoint, value);
-        }
-        public TrackEndpoint ConnectedEndpoint { get { return _ConnectedEndpoint; } set { SetConnectedEndpoint(value); } }
-
+        
         private string _ID = string.Empty;
         private void SetID(string value)
         {
@@ -71,6 +30,14 @@ namespace CAMTrak.Model.TrackItems.Parts
             }
         }
         public string ID { get { return _ID; } private set { SetID(value); } }
+
+        private TrackEndpointPosition _Position;
+        private void SetPosition(TrackEndpointPosition value)
+        {
+            Set<TrackEndpointPosition>("Position", ref _Position, value);
+        }
+        public TrackEndpointPosition Position { get { return _Position; } set { SetPosition(value); } }
+
 
         #endregion 
 
@@ -83,9 +50,14 @@ namespace CAMTrak.Model.TrackItems.Parts
         public TrackEndpoint(ITrackItem Parent, string ID)
         {
             this.Parent = Parent;
-            this.ID = ID;
-            ConnectedEndpoint = null;
-            Trackbed = null; // TODO: pull initial trackbedproperties from parent
+            this.ID = ID;        
+        }
+
+        public TrackEndpoint(ITrackItem Parent, string ID, Vector2 Position, double Altitude = 0.0)
+            : this(Parent, ID)
+        {
+            this.Position = new TrackEndpointPosition(Position, Altitude);
+
         }
 
         #endregion 

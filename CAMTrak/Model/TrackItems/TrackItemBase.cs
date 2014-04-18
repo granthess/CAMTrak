@@ -10,13 +10,22 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows;
 using CAMTrak.Model.TrackItems.Parts;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
+using CAMTrak.MathUtils;
 
 namespace CAMTrak.Model.TrackItems
 {
     public class TrackItemBase :   ViewModelBase, ITrackItem
     {
+        #region Junk properties
+        public double Angle { get; set; }
+        public Vector2 Center { get; set; }
 
-        private double _Width;
+
+        #endregion
+
+        #region Notified properties
+        protected double _Width;
         private void SetWidth(double value)
         {
             Set<double>("Width", ref _Width, value);
@@ -24,7 +33,7 @@ namespace CAMTrak.Model.TrackItems
         }
         public double Width { get { return _Width; } set { SetWidth(value); } }
 
-        private double _Height;
+        protected double _Height;
         private void SetHeight(double value)
         {
             Set<double>("Height", ref _Height, value);
@@ -32,7 +41,7 @@ namespace CAMTrak.Model.TrackItems
         }
         public double Height { get { return _Height; } set { SetHeight(value); } }
 
-        private double _Left;
+        protected double _Left;
         private void SetLeft(double value)
         {
             Set<double>("Left", ref _Left, value);
@@ -40,7 +49,7 @@ namespace CAMTrak.Model.TrackItems
         }
         public double Left { get { return _Left; } set { SetLeft(value); } }
 
-        private double _Top;
+        protected double _Top;
         private void SetTop(double value)
         {
             Set<double>("Top", ref _Top, value);
@@ -68,10 +77,26 @@ namespace CAMTrak.Model.TrackItems
         private void SetEndpoints(Dictionary<string, TrackEndpoint> value)
         {
             Set<Dictionary<string, TrackEndpoint>>("Endpoints", ref _Endpoints, value);
-        }
+        }        
         public Dictionary<string, TrackEndpoint> Endpoints { get { return _Endpoints; } set { SetEndpoints(value); } }
 
-        private Drawing OutlineDrawing;
+        private TrackEndpoint _A0;
+        private void SetA0(TrackEndpoint value)
+        {
+            Set<TrackEndpoint>("A0", ref _A0, value);
+        }
+        public TrackEndpoint A0 {get {return _A0;} set {SetA0(value);}}
+
+        private TrackEndpoint _A1;
+        private void SetA1(TrackEndpoint value)
+        {
+            Set<TrackEndpoint>("A1", ref _A1, value);
+        }
+        public TrackEndpoint A1 { get { return _A1; } set { SetA1(value); } }
+        
+        #endregion 
+
+        protected Drawing OutlineDrawing;
         private Drawing SchematicDrawing;
         private Drawing DetailDrawing;
 
@@ -98,7 +123,7 @@ namespace CAMTrak.Model.TrackItems
 
 
 
-        private void RegenerateGeometry()
+        protected void RegenerateGeometry()
         {
             GenerateOutlineDrawing();
             GenerateSchematicDrawing();

@@ -87,16 +87,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MathUtils\MathConstants.cs" />
+    <Compile Include="MathUtils\MathUtils.cs" />
+    <Compile Include="MathUtils\Matrix44.cs" />
+    <Compile Include="MathUtils\Quaternion.cs" />
+    <Compile Include="MathUtils\Vector2.cs" />
+    <Compile Include="MathUtils\Vector3.cs" />
+    <Compile Include="MathUtils\Vector4.cs" />
     <Compile Include="Model\EditDocument.cs" />
     <Compile Include="Model\Adorners\IDragHandle.cs" />
     <Compile Include="Model\Events\EndpointConnectionEventArgs.cs" />
     <Compile Include="Model\Events\EndpointMoveEventArgs.cs" />
     <Compile Include="Model\Events\EndpointRotationEventArgs.cs" />
+    <Compile Include="Model\Scale\RailCode.cs" />
+    <Compile Include="Model\Scale\ScaleManager.cs" />
     <Compile Include="Model\TrackItems\ITrackItem.cs" />
-    <Compile Include="Model\Trackbed\TrackbedProperties.cs" />
+    <Compile Include="Model\TrackItems\Parts\TrackConnection.cs" />
     <Compile Include="Model\TrackItems\Parts\TrackEndpoint.cs" />
+    <Compile Include="Model\TrackItems\Parts\TrackEndpointPosition.cs" />
+    <Compile Include="Model\TrackItems\Parts\TrackEndpointSplinePosition.cs" />
     <Compile Include="Model\TrackItems\TrackItemBase.cs" />
     <Compile Include="Model\TrackItems\TrackItemSingle.cs" />
+    <Compile Include="Model\TrackItems\TrackItemStraight.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">

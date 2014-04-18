@@ -7,6 +7,7 @@ using Xceed.Wpf.Toolkit.PropertyGrid;
 using System.Windows.Controls;
 using System.Windows;
 using CAMTrak.Model.TrackItems.Parts;
+using CAMTrak.MathUtils;
 
 
 namespace CAMTrak.Model.TrackItems
@@ -28,6 +29,12 @@ namespace CAMTrak.Model.TrackItems
         // With nested trackitems (groups, yards, crossovers, etc.) the endpoints
         // are prefixed with the trackitem's ID with the format "{0}.{1}" 
         Dictionary<string, TrackEndpoint> Endpoints { get; }
+
+        TrackEndpoint A0 { get; }
+        TrackEndpoint A1 { get; }
+
+        Vector2 Center { get; }
+        double Angle { get; }
 
     }
 }

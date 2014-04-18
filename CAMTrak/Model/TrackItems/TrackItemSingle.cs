@@ -69,6 +69,8 @@ namespace CAMTrak.Model.TrackItems
         Straight = 1,
         Radius =2
     }
+
+    [Obsolete("Use one of the TrackItemStraight, TrackItemCurved or TrackItemFlex objects instead.")]
     public class TrackItemSingle : TrackItemBase
     {
         #region Notified Properties
@@ -96,8 +98,8 @@ namespace CAMTrak.Model.TrackItems
 
         private void CreateEndpoints()
         {
-            TrackEndpoint A = new TrackEndpoint(this, "A");
-            TrackEndpoint B = new TrackEndpoint(this, "B");
+            TrackEndpoint A = new TrackEndpoint(this, "A.1");
+            TrackEndpoint B = new TrackEndpoint(this, "A.2");
         }
 
 

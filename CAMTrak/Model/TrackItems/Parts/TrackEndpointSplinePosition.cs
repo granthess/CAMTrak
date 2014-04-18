@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CAMTrak.Model.Trackbed
+namespace CAMTrak.Model.TrackItems.Parts
 {
-    public class TrackbedProperties
+
+    public class TrackEndpointSplinePosition
     {
     }
 }

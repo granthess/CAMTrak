@@ -14,6 +14,8 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Collections.Specialized;
 using CAMTrak.Model.TrackItems;
+using CAMTrak.Model.Scale;
+using CAMTrak.MathUtils;
 
 namespace CAMTrak.Model
 {
@@ -105,8 +107,15 @@ namespace CAMTrak.Model
         #endregion
 
 
+        #region Misc Properties
+        public ScaleManager Scale { get; private set; }
+        #endregion
+
+
+        #region Constructors
         public EditDocument()
-        {
+        {            
+            Scale = new ScaleManager();
 
             Items = new ObservableCollection<ITrackItem>();
             Items.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Items_CollectionChanged);
@@ -117,6 +126,7 @@ namespace CAMTrak.Model
             SetHeight(1200);
         }
 
+        #endregion 
         void Items_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
 
@@ -180,19 +190,12 @@ namespace CAMTrak.Model
 
 
         private void GenerateSomeItems()
-        {
-            TrackItemBase item = new TrackItemBase(this);
-            item.Left = 41;
-            item.Top = 99;
-            item.Width = 412;
-            item.Height = 91;
-            Items.Add(item);
+        {              
+            Vector2 A1 = new Vector2(50, 120);
+            Vector2 A2 = new Vector2(56, 120);
 
-            item = new TrackItemSingle(this);
-            item.Left = 71;
-            item.Top = 44;
-            item.Width = 312;
-            item.Height = 191;
+            TrackItemStraight item = new TrackItemStraight(this, A1, A2);
+            var x = item.Angle;
             Items.Add(item);
         }
 
