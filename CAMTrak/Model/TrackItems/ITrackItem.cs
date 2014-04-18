@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows;
 
 
-namespace CAMTrak.Model
+namespace CAMTrak.Model.TrackItems
 {
     public interface ITrackItem
     {
@@ -18,6 +18,8 @@ namespace CAMTrak.Model
         double Height { get; set; }
         double Left { get; set; }
         double Top { get; set; }
+
+        bool IsActive { get; set; }
 
         UIElement Control { get; }
 

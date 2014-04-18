@@ -13,6 +13,7 @@ using Xceed.Wpf.Toolkit.Zoombox;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Collections.Specialized;
+using CAMTrak.Model.TrackItems;
 
 namespace CAMTrak.Model
 {
@@ -78,6 +79,17 @@ namespace CAMTrak.Model
         private ITrackItem _CurrentItem;
         private void SetCurrentItem(ITrackItem value)
         {
+            if (value != _CurrentItem)
+            {
+                if (_CurrentItem != null)
+                {
+                    _CurrentItem.IsActive = false;
+                }
+                if (value != null)
+                {
+                    value.IsActive = true;
+                }
+            }
             Set<ITrackItem>("CurrentItem", ref _CurrentItem, value);
         }
         public ITrackItem CurrentItem { get { return _CurrentItem; } set { SetCurrentItem(value); } }
@@ -174,6 +186,13 @@ namespace CAMTrak.Model
             item.Top = 99;
             item.Width = 412;
             item.Height = 91;
+            Items.Add(item);
+
+            item = new TrackItemBase(this);
+            item.Left = 71;
+            item.Top = 44;
+            item.Width = 312;
+            item.Height = 191;
             Items.Add(item);
         }
 

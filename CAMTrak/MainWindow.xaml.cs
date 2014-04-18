@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CAMTrak.ViewModel;
 using CAMTrak.Model;
+using CAMTrak.Model.TrackItems;
 
 namespace CAMTrak
 {
@@ -43,6 +44,11 @@ namespace CAMTrak
 
             if (ActiveItem is EditDocument)
                 VM.CurrentDocument = ActiveItem as EditDocument;
+        }
+
+        private void Zoombox_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            VM.CurrentDocument.CurrentItem = null;
         }
 
 

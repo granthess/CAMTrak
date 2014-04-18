@@ -10,7 +10,7 @@
 
     <Window.Resources>        
         <DataTemplate DataType="{x:Type m:EditDocument}" >
-            <xctk:Zoombox AutoWrapContentWithViewbox="True"/>
+            <xctk:Zoombox AutoWrapContentWithViewbox="True" MouseDown="Zoombox_MouseDown" />
 
         </DataTemplate>        
     </Window.Resources>

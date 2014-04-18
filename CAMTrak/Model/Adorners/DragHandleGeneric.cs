@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using GalaSoft.MvvmLight;
 
-namespace CAMTrak.Model
+namespace CAMTrak.Model.Adorners
 {
 	public class DragHandleGeneric : ViewModelBase,  IDragHandle
 	{

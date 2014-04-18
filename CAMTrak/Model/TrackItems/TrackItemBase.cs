@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows;
 
-namespace CAMTrak.Model
+namespace CAMTrak.Model.TrackItems
 {
     public class TrackItemBase :   ViewModelBase, ITrackItem
     {
@@ -19,7 +19,7 @@ namespace CAMTrak.Model
         private void SetWidth(double value)
         {
             Set<double>("Width", ref _Width, value);
-            UpdateSize();
+            RegenerateGeometry();
         }
         public double Width { get { return _Width; } set { SetWidth(value); } }
 
@@ -27,7 +27,7 @@ namespace CAMTrak.Model
         private void SetHeight(double value)
         {
             Set<double>("Height", ref _Height, value);
-            UpdateSize();
+            RegenerateGeometry();
         }
         public double Height { get { return _Height; } set { SetHeight(value); } }
 
@@ -46,9 +46,14 @@ namespace CAMTrak.Model
             Canvas.SetTop(Control, value);
         }
         public double Top { get { return _Top; } set { SetTop(value); } }
-        
 
-        
+        private bool _IsActive;
+        private void SetActive(bool value)
+        {
+            Set<bool>("IsActive", ref _IsActive, value);
+            RegenerateGeometry();
+        }
+        public bool IsActive { get { return _IsActive; } set { SetActive(value); } }
 
         private UIElement _Control;
         private void SetControl(UIElement value)
@@ -57,9 +62,9 @@ namespace CAMTrak.Model
         }
         public UIElement Control { get { return _Control; } set { SetControl(value); } }
 
-        private GeometryGroup OutlineGeometry;
-        private GeometryGroup SchematicGeometry;
-        private GeometryGroup DetailGeometry;
+        private Drawing OutlineDrawing;
+        private Drawing SchematicDrawing;
+        private Drawing DetailDrawing;
 
         private EditDocument Parent;
 
@@ -79,24 +84,24 @@ namespace CAMTrak.Model
         void Control_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Parent.CurrentItem = this;
+            e.Handled = true;
         }
 
-        private void UpdateSize()
+
+
+        private void RegenerateGeometry()
         {
-            GenerateOutlineGeometry();
-            GenerateSchematicGeometry();
-            GenerateDetailGeometry();
+            GenerateOutlineDrawing();
+            GenerateSchematicDrawing();
+            GenerateDetailDrawing();
 
-            GeometryGroup Total = new GeometryGroup();
-            Total.Children.Add(OutlineGeometry);
-            Total.Children.Add(SchematicGeometry);
-            Total.Children.Add(DetailGeometry);
-
-            GeometryDrawing drawing = new GeometryDrawing(null, new Pen(Brushes.Blue, 1), Total);
+            DrawingGroup Total = new DrawingGroup();
+            Total.Children.Add(OutlineDrawing);
+            Total.Children.Add(SchematicDrawing);
+            Total.Children.Add(DetailDrawing);
                         
-            DrawingImage image = new DrawingImage(drawing);
-            var x = image.Width;
-            
+            DrawingImage image = new DrawingImage(Total);
+                       
 
             Image img = new Image();
             img.Source = image;
@@ -111,20 +116,34 @@ namespace CAMTrak.Model
         }
 
         
-        public virtual void GenerateOutlineGeometry()
+        public virtual void GenerateOutlineDrawing()
         {
-            OutlineGeometry = new GeometryGroup();                
+            Pen OutlinePen;
+
+            if (IsActive)
+            {
+                OutlinePen = new Pen(Brushes.Red, 2);
+            }
+            else
+            {
+                OutlinePen = new Pen(Brushes.DarkBlue, 1);
+            }
+            
+            GeometryGroup OutlineGeometry = new GeometryGroup();                
             OutlineGeometry.Children.Add(new RectangleGeometry(new Rect(0.0f, 0.0f, Width, Height)));
+            OutlineDrawing = new GeometryDrawing(Brushes.Pink, OutlinePen, OutlineGeometry);
         }
 
-        public virtual void GenerateSchematicGeometry()
+        public virtual void GenerateSchematicDrawing()
         {
-            SchematicGeometry = new GeometryGroup();
+            GeometryGroup SchematicGeometry = new GeometryGroup();            
+            SchematicDrawing = new GeometryDrawing(null, new Pen(Brushes.Red, 1), SchematicGeometry);
         }
 
-        public virtual void GenerateDetailGeometry()
+        public virtual void GenerateDetailDrawing()
         {
-            DetailGeometry = new GeometryGroup();
+            GeometryGroup DetailGeometry = new GeometryGroup();
+            DetailDrawing = new GeometryDrawing(null, new Pen(Brushes.Pink, 1), DetailGeometry);
         }
     }
 }
