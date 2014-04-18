@@ -89,8 +89,12 @@
     </ApplicationDefinition>
     <Compile Include="Model\EditDocument.cs" />
     <Compile Include="Model\Adorners\IDragHandle.cs" />
+    <Compile Include="Model\Events\EndpointConnectionEventArgs.cs" />
+    <Compile Include="Model\Events\EndpointMoveEventArgs.cs" />
+    <Compile Include="Model\Events\EndpointRotationEventArgs.cs" />
     <Compile Include="Model\TrackItems\ITrackItem.cs" />
     <Compile Include="Model\Trackbed\TrackbedProperties.cs" />
+    <Compile Include="Model\TrackItems\Parts\TrackEndpoint.cs" />
     <Compile Include="Model\TrackItems\TrackItemBase.cs" />
     <Compile Include="Model\TrackItems\TrackItemSingle.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

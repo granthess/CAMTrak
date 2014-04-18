@@ -188,7 +188,7 @@ namespace CAMTrak.Model
             item.Height = 91;
             Items.Add(item);
 
-            item = new TrackItemBase(this);
+            item = new TrackItemSingle(this);
             item.Left = 71;
             item.Top = 44;
             item.Width = 312;

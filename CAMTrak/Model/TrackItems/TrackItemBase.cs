@@ -9,6 +9,7 @@ using Xceed.Wpf.Toolkit.PropertyGrid;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows;
+using CAMTrak.Model.TrackItems.Parts;
 
 namespace CAMTrak.Model.TrackItems
 {
@@ -61,6 +62,14 @@ namespace CAMTrak.Model.TrackItems
             Set<UIElement>("Control", ref _Control, value);
         }
         public UIElement Control { get { return _Control; } set { SetControl(value); } }
+
+
+        private Dictionary<string, TrackEndpoint> _Endpoints;
+        private void SetEndpoints(Dictionary<string, TrackEndpoint> value)
+        {
+            Set<Dictionary<string, TrackEndpoint>>("Endpoints", ref _Endpoints, value);
+        }
+        public Dictionary<string, TrackEndpoint> Endpoints { get { return _Endpoints; } set { SetEndpoints(value); } }
 
         private Drawing OutlineDrawing;
         private Drawing SchematicDrawing;

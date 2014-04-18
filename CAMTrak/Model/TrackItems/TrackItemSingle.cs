@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CAMTrak.Model.TrackItems.Parts;
 
 #region Design Info
 /************************************************************************************
@@ -62,12 +63,44 @@ using System.Text;
 
 namespace CAMTrak.Model.TrackItems
 {
+    public enum SelectionMethod
+    {
+        Spline = 0,
+        Straight = 1,
+        Radius =2
+    }
     public class TrackItemSingle : TrackItemBase
     {
+        #region Notified Properties
+
+        private SelectionMethod _CurveSelectionMethod;
+        private void SetCurveSelectionMethod(SelectionMethod value)
+        {
+            Set<SelectionMethod>("CurveSelectionMethod", ref _CurveSelectionMethod, value);
+        }
+        public SelectionMethod CurveSelectionMethod { get { return _CurveSelectionMethod; } set { SetCurveSelectionMethod(value); } }
+        #endregion
+
+        #region Constructors
         public TrackItemSingle(EditDocument Parent)
             : base(Parent)
         {
-
+            CurveSelectionMethod = SelectionMethod.Spline;
+            CreateEndpoints();
         }
+
+        #endregion
+
+
+        #region Helper methods
+
+        private void CreateEndpoints()
+        {
+            TrackEndpoint A = new TrackEndpoint(this, "A");
+            TrackEndpoint B = new TrackEndpoint(this, "B");
+        }
+
+
+        #endregion 
     }
 }
