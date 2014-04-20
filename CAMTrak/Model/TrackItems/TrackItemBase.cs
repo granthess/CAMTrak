@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows;
 using CAMTrak.Model.TrackItems.Parts;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
-using CAMTrak.MathUtils;
+using CAMTrak.Utilities;
 
 namespace CAMTrak.Model.TrackItems
 {
@@ -106,7 +106,15 @@ namespace CAMTrak.Model.TrackItems
         {
             this.Parent = Parent;
 
-            Control = new ContentPresenter();
+            //Control = new ContentPresenter();
+
+            Control = new Border();
+            Border Ctrl = Control as Border;
+
+
+            Ctrl.Background = Brushes.Yellow;
+            
+            
             Control.MouseDown += new System.Windows.Input.MouseButtonEventHandler(Control_MouseDown);
 
             Width = 100;
@@ -146,7 +154,8 @@ namespace CAMTrak.Model.TrackItems
             img.Height = Height+4;
             
 
-            (Control as ContentPresenter).Content = img;  
+            //(Control as ContentPresenter).Content = img;  
+            (Control as Border).Child = img;
         }
 
         

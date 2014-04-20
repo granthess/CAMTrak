@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CAMTrak.MathUtils;
+using CAMTrak.Utilities;
 using CAMTrak.Model.TrackItems.Parts;
 using System.Windows.Media;
 using System.Windows;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace CAMTrak.Model.TrackItems
 {
     public class TrackItemStraight : TrackItemBase
+
     {
 
         #region Notified properties
@@ -47,7 +49,7 @@ namespace CAMTrak.Model.TrackItems
         {
             Vector2 V1 = (A1.Position.Position - Center);
 
-            double angle = MathUtils.MathUtils.Radian2Degree(Math.Atan2(V1.y, V1.x));
+            double angle = MathUtils.Radian2Degree(Math.Atan2(V1.y, V1.x));
             return angle;
         }
 
@@ -55,7 +57,7 @@ namespace CAMTrak.Model.TrackItems
         {
             // get the distance from Center to an endpoint
             double Dist = (Center - A0.Position.Position).Length();
-            double Ang = MathUtils.MathUtils.Degree2Radian(value);
+            double Ang = MathUtils.Degree2Radian(value);
             Vector2 NewVec = new Vector2(Math.Cos(Ang), Math.Sin(Ang));
 
             A0.Position.Position = -NewVec * Dist;
@@ -96,9 +98,9 @@ namespace CAMTrak.Model.TrackItems
             GeometryGroup OutlineGeometry = new GeometryGroup();
             if ((A1 != null) && (A0 != null))
             {
-                Vector2 CenterVector = A1.Position.Position - A0.Position.Position;
-                Vector2 Normal = new Vector2(CenterVector.x, -CenterVector.y);
-                double offset = 60 / 160.0;
+                Vector2 CenterVector = Vector2.Normalize(A1.Position.Position - A0.Position.Position);
+                Vector2 Normal = new Vector2(CenterVector.y, -CenterVector.x);
+                double offset = 60 / 16.0;
 
 
                 Vector2 tmp;
@@ -125,7 +127,7 @@ namespace CAMTrak.Model.TrackItems
                 minX = Math.Min(minX, tmp.x);
                 minY = Math.Min(minY, tmp.y);
                 maxX = Math.Max(maxX, tmp.x);
-                maxY = Math.Max(maxX, tmp.y);
+                maxY = Math.Max(maxY, tmp.y);
                 myPathSegmentCollection.Add(myLineSegment);
 
                 tmp = A1.Position.Position + (-Normal * offset);
@@ -134,7 +136,7 @@ namespace CAMTrak.Model.TrackItems
                 minX = Math.Min(minX, tmp.x);
                 minY = Math.Min(minY, tmp.y);
                 maxX = Math.Max(maxX, tmp.x);
-                maxY = Math.Max(maxX, tmp.y);
+                maxY = Math.Max(maxY, tmp.y);
                 myPathSegmentCollection.Add(myLineSegment);
 
                 tmp = A1.Position.Position + (Normal * offset);
@@ -143,7 +145,7 @@ namespace CAMTrak.Model.TrackItems
                 minX = Math.Min(minX, tmp.x);
                 minY = Math.Min(minY, tmp.y);
                 maxX = Math.Max(maxX, tmp.x);
-                maxY = Math.Max(maxX, tmp.y);
+                maxY = Math.Max(maxY, tmp.y);
                 myPathSegmentCollection.Add(myLineSegment);
 
                 myPathFigure.Segments = myPathSegmentCollection;
@@ -154,11 +156,17 @@ namespace CAMTrak.Model.TrackItems
                 PathGeometry myPathGeometry = new PathGeometry();
                 myPathGeometry.Figures = myPathFigureCollection;
                 OutlineGeometry.Children.Add(myPathGeometry);
-
+                
                 _Width = maxX - minX;
                 _Height = maxY - minY;
-                _Left = minX;
-                _Top = minY;
+                
+                Left = Center.x + minX ;
+                Top = Center.y  + minY;
+
+
+                //RaisePropertyChanged("Top");
+                //RaisePropertyChanged("Left");
+
             }
             else
             {

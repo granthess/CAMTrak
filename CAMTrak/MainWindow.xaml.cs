@@ -51,6 +51,12 @@ namespace CAMTrak
             VM.CurrentDocument.CurrentItem = null;
         }
 
+        private void CADControl_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+
+        }
+
 
     }
 }

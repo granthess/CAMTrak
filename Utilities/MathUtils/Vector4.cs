@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-namespace CAMTrak.MathUtils
+namespace CAMTrak.Utilities
 {
     public struct Vector4
     {

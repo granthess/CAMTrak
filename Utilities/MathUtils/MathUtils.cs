@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-namespace CAMTrak.MathUtils
+namespace CAMTrak.Utilities
 {
     public class MathUtils
     {

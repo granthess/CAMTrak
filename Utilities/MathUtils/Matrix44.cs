@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.IO;
-namespace CAMTrak.MathUtils
+namespace CAMTrak.Utilities
 {
     public struct Matrix44
     {

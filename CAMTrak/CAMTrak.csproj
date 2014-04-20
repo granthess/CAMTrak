@@ -87,13 +87,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MathUtils\MathConstants.cs" />
-    <Compile Include="MathUtils\MathUtils.cs" />
-    <Compile Include="MathUtils\Matrix44.cs" />
-    <Compile Include="MathUtils\Quaternion.cs" />
-    <Compile Include="MathUtils\Vector2.cs" />
-    <Compile Include="MathUtils\Vector3.cs" />
-    <Compile Include="MathUtils\Vector4.cs" />
     <Compile Include="Model\EditDocument.cs" />
     <Compile Include="Model\Adorners\IDragHandle.cs" />
     <Compile Include="Model\Events\EndpointConnectionEventArgs.cs" />
@@ -152,6 +145,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Adorners\DragHandleGeneric.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libCAD\libCAD.csproj">
+      <Project>{C80D6592-3F9E-430C-AD9F-4D1507BFC0A8}</Project>
+      <Name>libCAD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MathUtils\Utilities.csproj">
+      <Project>{15DE7A35-986A-4DDA-BB89-9641660A922D}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

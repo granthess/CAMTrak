@@ -7,7 +7,7 @@ using Xceed.Wpf.Toolkit.PropertyGrid;
 using System.Windows.Controls;
 using System.Windows;
 using CAMTrak.Model.TrackItems.Parts;
-using CAMTrak.MathUtils;
+using CAMTrak.Utilities;
 
 
 namespace CAMTrak.Model.TrackItems

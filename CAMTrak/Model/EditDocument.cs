@@ -15,7 +15,7 @@ using System.Windows.Input;
 using System.Collections.Specialized;
 using CAMTrak.Model.TrackItems;
 using CAMTrak.Model.Scale;
-using CAMTrak.MathUtils;
+using CAMTrak.Utilities;
 
 namespace CAMTrak.Model
 {

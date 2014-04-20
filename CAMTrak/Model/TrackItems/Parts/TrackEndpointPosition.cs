@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using GalaSoft.MvvmLight;
-using CAMTrak.MathUtils;
+using CAMTrak.Utilities;
 
 namespace CAMTrak.Model.TrackItems.Parts
 {
