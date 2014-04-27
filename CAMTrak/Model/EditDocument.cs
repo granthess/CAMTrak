@@ -13,9 +13,10 @@ using Xceed.Wpf.Toolkit.Zoombox;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Collections.Specialized;
-using CAMTrak.Model.TrackItems;
 using CAMTrak.Model.Scale;
 using CAMTrak.Utilities;
+using CAMTrak.Model.CADElements;
+using CAMTrak.Model.CADElements.Parts;
 
 namespace CAMTrak.Model
 {
@@ -71,15 +72,15 @@ namespace CAMTrak.Model
         }
         public bool Changed { get { return _Changed; } set { SetChanged(value); } }
 
-        private ObservableCollection<ITrackItem> _Items;
-        private void SetItems(ObservableCollection<ITrackItem> value)
+        private ObservableCollection<ICADElement> _Items;
+        private void SetItems(ObservableCollection<ICADElement> value)
         {
-            Set<ObservableCollection<ITrackItem>>("Items", ref _Items, value);
+            Set<ObservableCollection<ICADElement>>("Items", ref _Items, value);
         }
-        public ObservableCollection<ITrackItem> Items { get { return _Items; } set { SetItems(value); } }
+        public ObservableCollection<ICADElement> Items { get { return _Items; } set { SetItems(value); } }
 
-        private ITrackItem _CurrentItem;
-        private void SetCurrentItem(ITrackItem value)
+        private ICADElement _CurrentItem;
+        private void SetCurrentItem(ICADElement value)
         {
             if (value != _CurrentItem)
             {
@@ -92,9 +93,9 @@ namespace CAMTrak.Model
                     value.IsActive = true;
                 }
             }
-            Set<ITrackItem>("CurrentItem", ref _CurrentItem, value);
+            Set<ICADElement>("CurrentItem", ref _CurrentItem, value);
         }
-        public ITrackItem CurrentItem { get { return _CurrentItem; } set { SetCurrentItem(value); } }
+        public ICADElement CurrentItem { get { return _CurrentItem; } set { SetCurrentItem(value); } }
 
         #endregion
 
@@ -117,7 +118,7 @@ namespace CAMTrak.Model
         {            
             Scale = new ScaleManager();
 
-            Items = new ObservableCollection<ITrackItem>();
+            Items = new ObservableCollection<ICADElement>();
             Items.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Items_CollectionChanged);
             SetTitle(string.Empty);
             _Changed = true;
@@ -129,17 +130,16 @@ namespace CAMTrak.Model
         #endregion 
         void Items_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-
            
             switch (e.Action)
             {
                 case NotifyCollectionChangedAction.Add:
                     foreach (var item in e.NewItems)
                     {
-                        ITrackItem itm = item as ITrackItem;
-                        OurCanvas.Children.Add(itm.Control);
-                        Canvas.SetLeft(itm.Control, itm.Left);
-                        Canvas.SetTop(itm.Control, itm.Top);
+                        //ITrackItem itm = item as ITrackItem;
+                        //OurCanvas.Children.Add(itm.Control);
+                        //Canvas.SetLeft(itm.Control, itm.Left);
+                        //Canvas.SetTop(itm.Control, itm.Top);
                     }
                     break;
 
@@ -156,47 +156,46 @@ namespace CAMTrak.Model
 
 
 
-        internal void SetLayout(string Title, LayoutContent Layout)
+        internal void SetupLayout(string Title, LayoutContent Layout)
         {
-            SetLayout(Layout as LayoutDocument);
-            SetTitle(Title);
-            Changed = true;
+            //SetLayout(Layout as LayoutDocument);
+            //SetTitle(Title);
+            //Changed = true;
 
-            OurView.ApplyTemplate();
+            //OurView.ApplyTemplate();
 
-            Border border = new Border();
-            border.BorderThickness = new Thickness(2);
-            border.BorderBrush = Brushes.Black;
-            border.HorizontalAlignment = HorizontalAlignment.Left;
-            border.VerticalAlignment = VerticalAlignment.Top;
-            border.Margin = new Thickness(5);            
-            border.Width = Width;
-            border.Height = Height;
+            //Border border = new Border();
+            //border.BorderThickness = new Thickness(2);
+            //border.BorderBrush = Brushes.Black;
+            //border.HorizontalAlignment = HorizontalAlignment.Left;
+            //border.VerticalAlignment = VerticalAlignment.Top;
+            //border.Margin = new Thickness(5);            
+            //border.Width = Width;
+            //border.Height = Height;
 
-            OurZoombox.Content = border;
-            OurBorder = border;
+            //OurZoombox.Content = border;
+            //OurBorder = border;
 
-            Canvas canvas = new Canvas();
-            canvas.HorizontalAlignment = HorizontalAlignment.Stretch;
-            canvas.VerticalAlignment = VerticalAlignment.Stretch;
-            canvas.Background = Brushes.LightGray;
+            //Canvas canvas = new Canvas();
+            //canvas.HorizontalAlignment = HorizontalAlignment.Stretch;
+            //canvas.VerticalAlignment = VerticalAlignment.Stretch;
+            //canvas.Background = Brushes.LightGray;
 
-            OurBorder.Child = canvas;
-            OurCanvas = canvas;
+            //OurBorder.Child = canvas;
+            //OurCanvas = canvas;
 
 
             GenerateSomeItems();
         }
 
 
-        private void GenerateSomeItems()
-        {              
-            Vector2 A1 = new Vector2(50, 120);
-            Vector2 A2 = new Vector2(56, 120);
+        public void GenerateSomeItems()
+        {
+            CADElementBaseTri tri = new CADElementBaseTri(new Position(31, 44), new Position(133, 40), new Position(133, 100));
+            Items.Add(tri);
 
-            TrackItemStraight item = new TrackItemStraight(this, A1, A2);
-            var x = item.Angle;
-            Items.Add(item);
+            tri = new CADElementBaseTri(new Position(133, 150), new Position(200, 200), new Position(133, 100));
+            Items.Add(tri);
         }
 
         public ContentPresenter GetView()

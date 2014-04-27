@@ -87,21 +87,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\CADElements\CADElementBaseTri.cs" />
+    <Compile Include="Model\CADElements\Events\PositionDragEventArgs.cs" />
+    <Compile Include="Model\CADElements\ICADElement.cs" />
+    <Compile Include="Model\CADElements\Parts\Position.cs" />
+    <Compile Include="Model\Controls\Adorners\CADAdorner.cs" />
+    <Compile Include="Model\Controls\Adorners\DragThumb.cs" />
+    <Compile Include="Model\Controls\CADControl.cs" />
+    <Compile Include="Model\Controls\CADControlPolygon.cs" />
     <Compile Include="Model\EditDocument.cs" />
-    <Compile Include="Model\Adorners\IDragHandle.cs" />
     <Compile Include="Model\Events\EndpointConnectionEventArgs.cs" />
     <Compile Include="Model\Events\EndpointMoveEventArgs.cs" />
     <Compile Include="Model\Events\EndpointRotationEventArgs.cs" />
     <Compile Include="Model\Scale\RailCode.cs" />
     <Compile Include="Model\Scale\ScaleManager.cs" />
-    <Compile Include="Model\TrackItems\ITrackItem.cs" />
-    <Compile Include="Model\TrackItems\Parts\TrackConnection.cs" />
-    <Compile Include="Model\TrackItems\Parts\TrackEndpoint.cs" />
-    <Compile Include="Model\TrackItems\Parts\TrackEndpointPosition.cs" />
-    <Compile Include="Model\TrackItems\Parts\TrackEndpointSplinePosition.cs" />
-    <Compile Include="Model\TrackItems\TrackItemBase.cs" />
-    <Compile Include="Model\TrackItems\TrackItemSingle.cs" />
-    <Compile Include="Model\TrackItems\TrackItemStraight.cs" />
+    <Compile Include="Utilities\MathUtils\MathConstants.cs" />
+    <Compile Include="Utilities\MathUtils\MathUtils.cs" />
+    <Compile Include="Utilities\MathUtils\Matrix44.cs" />
+    <Compile Include="Utilities\MathUtils\Quaternion.cs" />
+    <Compile Include="Utilities\MathUtils\Vector2.cs" />
+    <Compile Include="Utilities\MathUtils\Vector3.cs" />
+    <Compile Include="Utilities\MathUtils\Vector4.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
@@ -143,19 +149,7 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Model\Adorners\DragHandleGeneric.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\libCAD\libCAD.csproj">
-      <Project>{C80D6592-3F9E-430C-AD9F-4D1507BFC0A8}</Project>
-      <Name>libCAD</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MathUtils\Utilities.csproj">
-      <Project>{15DE7A35-986A-4DDA-BB89-9641660A922D}</Project>
-      <Name>Utilities</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -146,7 +146,7 @@ namespace CAMTrak.ViewModel
                         select i).First();
                         
 
-            Edoc.SetLayout(Title, Ldoc);
+            Edoc.SetupLayout(Title, Ldoc);
             CurrentDocument = Edoc;
             
 
@@ -184,5 +184,13 @@ namespace CAMTrak.ViewModel
             return true;
         }
         #endregion
+
+        internal void DockingMangerLoaded()
+        {
+            EditDocument eDoc = new EditDocument();
+            eDoc.Title = "FRED WAS HERE";
+            eDoc.GenerateSomeItems();
+            Documents.Add(eDoc);
+        }
     }
 }

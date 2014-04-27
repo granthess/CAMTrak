@@ -3,24 +3,53 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
         xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
-        xmlns:vm="clr-namespace:CAMTrak.ViewModel"
-        xmlns:lc="clr-namespace:CAMTrak.libCAD;assembly=libCAD"
+        xmlns:vm="clr-namespace:CAMTrak.ViewModel"        
         xmlns:m="clr-namespace:CAMTrak.Model"
+        xmlns:CAD="clr-namespace:CAMTrak.Model.CADElements"
+        xmlns:CTRL="clr-namespace:CAMTrak.Model.Controls"
         MinWidth="525"
         Title="MainWindow" Height="350" Width="525">
 
-    <Window.Resources>        
+    <Window.Resources>
         <DataTemplate DataType="{x:Type m:EditDocument}" >
-            <xctk:Zoombox AutoWrapContentWithViewbox="True" MouseDown="Zoombox_MouseDown" />
-
-        </DataTemplate>        
+            <xctk:Zoombox AutoWrapContentWithViewbox="True" MouseDown="Zoombox_MouseDown" Background="YellowGreen" >
+                <Border BorderThickness="2" BorderBrush="Black"
+                        HorizontalAlignment="Left" VerticalAlignment="Top"
+                        Margin="5" 
+                        Width="{Binding Width}" 
+                        Height="{Binding Height}">
+                    <AdornerDecorator>
+                        <ItemsControl ItemsSource="{Binding Path=Items}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="{x:Type CAD:CADElementBaseTri}">
+                                    <CTRL:CADControlPolygon MouseDown="CADControl_MouseDown"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemContainerStyle>
+                                <Style>
+                                    <Setter Property="Canvas.Left" Value="{Binding Left}" />
+                                    <Setter Property="Canvas.Top"  Value="{Binding Top}" />
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas Background="Purple" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </AdornerDecorator>
+                </Border>
+            </xctk:Zoombox>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type CAD:CADElementBaseTri}">
+            <CTRL:CADControlPolygon />
+        </DataTemplate>
     </Window.Resources>
 
     <Grid Background="LightCyan">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="100*" />
-            <RowDefinition Height="50*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <!-- Menu and ToolBarTray -->
@@ -33,19 +62,9 @@
                      Height="Auto"
                      />
 
-        <!-- Temporary stuffz -->
-        
-        <Border Background="Orange" BorderBrush="Black" BorderThickness="2" Grid.Row="2"
-                VerticalAlignment="Stretch" Height="Auto" MinHeight="70" HorizontalAlignment="Stretch" CornerRadius="5"
-                Padding="1">
-                <Canvas Name="TestCanvas"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightGoldenrodYellow">
-                <lc:CADControl Canvas.Left="50" Canvas.Top="12" Width="50" Height="50" MouseDown="CADControl_MouseDown" Cursor="SizeAll"/>
-            </Canvas>
-            </Border>
-
         <!-- Status Bar -->
         <StatusBar 
-            Grid.Row="3" 
+            Grid.Row="2" 
             MinHeight="23" 
             HorizontalAlignment="Stretch" 
             Name="statusBar1" 
@@ -53,7 +72,7 @@
             VerticalAlignment="Bottom"
             Height="Auto"
             />
-        
+
         <!-- Avalon Dock -->
         <xcad:DockingManager 
             Grid.Row="1" 
@@ -63,24 +82,16 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"         
             Name="dockingManager1"            
-            DocumentsSource="{Binding Documents}" ActiveContentChanged="dockingManager1_ActiveContentChanged">
-            
+            DocumentsSource="{Binding Documents}" 
+            ActiveContentChanged="dockingManager1_ActiveContentChanged" Loaded="dockingManager1_Loaded">
             <xcad:DockingManager.DocumentHeaderTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" DataContext="{Binding Content}">
                         <Image Source="{Binding IconSource}" Margin="0,0,4,0"/>
                         <TextBlock Text="{Binding Title}" />
                     </StackPanel>
                 </DataTemplate>
             </xcad:DockingManager.DocumentHeaderTemplate>
-            <xcad:DockingManager.DocumentTitleTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="{Binding IconSource}" Margin="0,0,4,0"/>
-                        <TextBlock Text="{Binding Title}" />
-                    </StackPanel>
-                </DataTemplate>
-            </xcad:DockingManager.DocumentTitleTemplate>
             <xcad:LayoutRoot>
                 <xcad:LayoutPanel Orientation="Horizontal">
                     <xcad:LayoutAnchorablePane 

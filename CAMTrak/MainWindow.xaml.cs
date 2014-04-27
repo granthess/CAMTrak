@@ -13,7 +13,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CAMTrak.ViewModel;
 using CAMTrak.Model;
-using CAMTrak.Model.TrackItems;
+using System.Windows.Controls.Primitives;
+using CAMTrak.Model.Controls;
 
 namespace CAMTrak
 {
@@ -29,14 +30,6 @@ namespace CAMTrak
             DataContext = new MainViewModel(this);
         }
 
-        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            
-            VM.CurrentDocument.CurrentItem = ((sender as Rectangle).DataContext as ITrackItem);
-
-
-            e.Handled = true;
-        }
 
         private void dockingManager1_ActiveContentChanged(object sender, EventArgs e)
         {
@@ -53,9 +46,17 @@ namespace CAMTrak
 
         private void CADControl_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
 
+            VM.CurrentDocument.CurrentItem = (sender as CADControl).E;
+            
         }
+
+        private void dockingManager1_Loaded(object sender, RoutedEventArgs e)
+        {
+            VM.DockingMangerLoaded();
+        }
+
+
 
 
     }
