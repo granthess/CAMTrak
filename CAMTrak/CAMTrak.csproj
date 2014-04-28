@@ -87,7 +87,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\CADElements\CADElementBaseTri.cs" />
+    <Compile Include="Model\CADElements\CADElementBaseboard.cs" />
     <Compile Include="Model\CADElements\Events\PositionDragEventArgs.cs" />
     <Compile Include="Model\CADElements\ICADElement.cs" />
     <Compile Include="Model\CADElements\Parts\Position.cs" />

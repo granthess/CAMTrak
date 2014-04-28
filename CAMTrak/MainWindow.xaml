@@ -21,7 +21,7 @@
                     <AdornerDecorator>
                         <ItemsControl ItemsSource="{Binding Path=Items}">
                             <ItemsControl.ItemTemplate>
-                                <DataTemplate DataType="{x:Type CAD:CADElementBaseTri}">
+                                <DataTemplate DataType="{x:Type CAD:CADElementBaseboard}">
                                     <CTRL:CADControlPolygon MouseDown="CADControl_MouseDown"/>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
@@ -41,7 +41,7 @@
                 </Border>
             </xctk:Zoombox>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type CAD:CADElementBaseTri}">
+        <DataTemplate DataType="{x:Type CAD:CADElementBaseboard}">
             <CTRL:CADControlPolygon />
         </DataTemplate>
     </Window.Resources>

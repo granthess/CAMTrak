@@ -10,7 +10,7 @@ using CAMTrak.Utilities;
 
 namespace CAMTrak.Model.CADElements
 {
-    public class CADElementBaseTri : ViewModelBase,  ICADElement
+    public class CADElementBaseboard : ViewModelBase,  ICADElement
     {
 
         public bool IsActive { get; set; }
@@ -43,25 +43,53 @@ namespace CAMTrak.Model.CADElements
         public ObservableCollection<Position> Positions { get { return _Positions; } set { SetPositions(value); } }
 
 
-        public CADElementBaseTri()
+        private  CADElementBaseboard()
         {
             Positions = new ObservableCollection<Position>();
         }
 
-        public CADElementBaseTri(Position V1, Position V2, Position V3)
+        public CADElementBaseboard(int Count, Vector2 Location)
+            : this ()
+        {
+            if (Count < 3 | Count > 4)
+                throw new ArgumentOutOfRangeException("Count", "Count must be either 3 or 4");
+
+            SetupPosition(Location - (Vector2.UnitX * 20) - (Vector2.UnitY * 20));
+            SetupPosition(Location - (Vector2.UnitX * 20) + (Vector2.UnitY * 20));
+            SetupPosition(Location + (Vector2.UnitX * 20) + (Vector2.UnitY * 20));
+            if (Count == 4)
+            {
+                SetupPosition(Location + (Vector2.UnitX * 20) - (Vector2.UnitY * 20));
+            }
+        }
+
+
+        private void SetupPosition(Position pos)
+        {
+            Positions.Add(pos);
+            pos.PositionConstrainDrag += new Position.PositionDragEventHandler(PositionConstrainDrag);
+            pos.PositionSnapDrag += new Position.PositionDragEventHandler(PositionSnapDrag);
+        }
+
+        private void SetupPosition( Vector2 pos)
+        {            
+            SetupPosition(new Position(pos));
+        }
+
+        public CADElementBaseboard(Position V1, Position V2, Position V3, Position V4)
+        {
+            SetupPosition(V1);
+            SetupPosition(V2);
+            SetupPosition(V3);
+            SetupPosition(V4);            
+       }
+
+        public CADElementBaseboard(Position V1, Position V2, Position V3)
             : this()
         {
-            Positions.Add(V1);
-            Positions.Add(V2);
-            Positions.Add(V3);
-
-            V1.PositionConstrainDrag += new Position.PositionDragEventHandler(PositionConstrainDrag);
-            V2.PositionConstrainDrag += new Position.PositionDragEventHandler(PositionConstrainDrag);
-            V3.PositionConstrainDrag += new Position.PositionDragEventHandler(PositionConstrainDrag);
-
-            V1.PositionSnapDrag += new Position.PositionDragEventHandler(PositionSnapDrag);
-            V2.PositionSnapDrag += new Position.PositionDragEventHandler(PositionSnapDrag);
-            V3.PositionSnapDrag += new Position.PositionDragEventHandler(PositionSnapDrag);
+            SetupPosition(V1);
+            SetupPosition(V2);
+            SetupPosition(V3);
         }
 
         void PositionSnapDrag(object sender, Events.PositionDragEventArgs e)

@@ -191,10 +191,13 @@ namespace CAMTrak.Model
 
         public void GenerateSomeItems()
         {
-            CADElementBaseTri tri = new CADElementBaseTri(new Position(31, 44), new Position(133, 40), new Position(133, 100));
+            CADElementBaseboard tri = new CADElementBaseboard(new Position(31, 44), new Position(133, 40), new Position(133, 100));
             Items.Add(tri);
 
-            tri = new CADElementBaseTri(new Position(133, 150), new Position(200, 200), new Position(133, 100));
+            tri = new CADElementBaseboard(3, new Position(133, 150));
+            Items.Add(tri);
+
+            tri = new CADElementBaseboard(4, new Vector2(200, 300));
             Items.Add(tri);
         }
 
