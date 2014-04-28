@@ -12,7 +12,7 @@
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type m:EditDocument}" >
-            <xctk:Zoombox AutoWrapContentWithViewbox="True" MouseDown="Zoombox_MouseDown" Background="YellowGreen" >
+            <xctk:Zoombox AutoWrapContentWithViewbox="True" MouseDown="Zoombox_MouseDown" >
                 <Border BorderThickness="2" BorderBrush="Black"
                         HorizontalAlignment="Left" VerticalAlignment="Top"
                         Margin="5" 
@@ -33,7 +33,7 @@
                             </ItemsControl.ItemContainerStyle>
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <Canvas Background="Purple" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <Canvas Background="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>
