@@ -11,6 +11,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CAMTrak.ViewModel;
+using CAMTrak.Model;
+using System.Windows.Controls.Primitives;
+using CAMTrak.Model.Controls;
 
 namespace CAMTrak
 {
@@ -19,9 +23,41 @@ namespace CAMTrak
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainViewModel VM { get { return DataContext as MainViewModel; } }
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel(this);
         }
+
+
+        private void dockingManager1_ActiveContentChanged(object sender, EventArgs e)
+        {
+            var ActiveItem = dockingManager1.ActiveContent;
+
+            if (ActiveItem is EditDocument)
+                VM.CurrentDocument = ActiveItem as EditDocument;
+        }
+
+        private void Zoombox_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            VM.CurrentDocument.CurrentItem = null;
+        }
+
+        private void CADControl_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            VM.CurrentDocument.CurrentItem = (sender as CADControl).E;
+            
+        }
+
+        private void dockingManager1_Loaded(object sender, RoutedEventArgs e)
+        {
+            VM.DockingMangerLoaded();
+        }
+
+
+
+
     }
 }

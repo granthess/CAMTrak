@@ -1,8 +1,148 @@
 ﻿<Window x:Class="CAMTrak.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:vm="clr-namespace:CAMTrak.ViewModel"        
+        xmlns:m="clr-namespace:CAMTrak.Model"
+        xmlns:CAD="clr-namespace:CAMTrak.Model.CADElements"
+        xmlns:CTRL="clr-namespace:CAMTrak.Model.Controls"
+        MinWidth="525"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type m:EditDocument}" >
+            <xctk:Zoombox AutoWrapContentWithViewbox="True" MouseDown="Zoombox_MouseDown" >
+                <Border BorderThickness="2" BorderBrush="Black"
+                        HorizontalAlignment="Left" VerticalAlignment="Top"
+                        Margin="5" 
+                        Width="{Binding Width}" 
+                        Height="{Binding Height}">
+                    <AdornerDecorator>
+                        <ItemsControl ItemsSource="{Binding Path=Items}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="{x:Type CAD:CADElementBaseboard}">
+                                    <CTRL:CADControlPolygon MouseDown="CADControl_MouseDown"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemContainerStyle>
+                                <Style>
+                                    <Setter Property="Canvas.Left" Value="{Binding Left}" />
+                                    <Setter Property="Canvas.Top"  Value="{Binding Top}" />
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas Background="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </AdornerDecorator>
+                </Border>
+            </xctk:Zoombox>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type CAD:CADElementBaseboard}">
+            <CTRL:CADControlPolygon />
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid Background="LightCyan">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="100*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <!-- Menu and ToolBarTray -->
+        <ToolBarTray Grid.Row="0" 
+                     MinHeight="26" 
+                     HorizontalAlignment="Stretch"  
+                     Name="toolBarTray1" 
+                     VerticalAlignment="Top" 
+                     Background="Aquamarine"
+                     Height="Auto"
+                     />
+
+        <!-- Status Bar -->
+        <StatusBar 
+            Grid.Row="2" 
+            MinHeight="23" 
+            HorizontalAlignment="Stretch" 
+            Name="statusBar1" 
+            Background="Aquamarine"
+            VerticalAlignment="Bottom"
+            Height="Auto"
+            />
+
+        <!-- Avalon Dock -->
+        <xcad:DockingManager 
+            Grid.Row="1" 
+            AllowMixedOrientation="True"
+            BorderBrush="Black"
+            BorderThickness="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"         
+            Name="dockingManager1"            
+            DocumentsSource="{Binding Documents}" 
+            ActiveContentChanged="dockingManager1_ActiveContentChanged" Loaded="dockingManager1_Loaded">
+            <xcad:DockingManager.DocumentHeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" DataContext="{Binding Content}">
+                        <Image Source="{Binding IconSource}" Margin="0,0,4,0"/>
+                        <TextBlock Text="{Binding Title}" />
+                    </StackPanel>
+                </DataTemplate>
+            </xcad:DockingManager.DocumentHeaderTemplate>
+            <xcad:LayoutRoot>
+                <xcad:LayoutPanel Orientation="Horizontal">
+                    <xcad:LayoutAnchorablePane 
+                        DockWidth="200"
+                        >
+                        <xcad:LayoutAnchorable 
+                            ContentId="toolbox" 
+                            Title="Toolbox"
+                            CanHide="False"
+                            CanClose="False"
+                            AutoHideWidth="240">
+
+                        </xcad:LayoutAnchorable>
+                    </xcad:LayoutAnchorablePane>
+                    <xcad:LayoutDocumentPaneGroup x:Name="documentPaneGroup1">
+                        <xcad:LayoutDocumentPane x:Name="documentPane1">
+                        </xcad:LayoutDocumentPane>
+                    </xcad:LayoutDocumentPaneGroup>
+                    <xcad:LayoutAnchorablePaneGroup 
+                        DockWidth="200"
+                        Orientation="Vertical"
+                        >
+                        <xcad:LayoutAnchorablePane 
+                        DockWidth="200">
+                            <xcad:LayoutAnchorable 
+                            ContentId="properties" 
+                            Title="Properties"
+                            CanHide="False"
+                            CanClose="False"
+                            AutoHideWidth="240">
+                                <xctk:PropertyGrid 
+                                    NameColumnWidth="110" 
+                                    SelectedObject="{Binding CurrentDocument.CurrentItem }" 
+                                    SelectedObjectName="{Binding  CurrentDocument.CurrentItem.Name}"
+                                  />
+                            </xcad:LayoutAnchorable>
+                        </xcad:LayoutAnchorablePane>
+
+                    </xcad:LayoutAnchorablePaneGroup>
+                </xcad:LayoutPanel>
+            </xcad:LayoutRoot>
+        </xcad:DockingManager>
+        <Button 
+            Content="Button1" 
+            Height="23"
+            HorizontalAlignment="Left" 
+            Margin="12,3,0,0" 
+            Name="button1" 
+            VerticalAlignment="Top" 
+            Width="75" 
+            Command="{Binding Button1Cmd}"
+            />
     </Grid>
 </Window>
