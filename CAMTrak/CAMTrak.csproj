@@ -88,6 +88,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\CADElements\CADElementBaseboard.cs" />
+    <Compile Include="Model\CADElements\CADElementBaseCommon.cs" />
+    <Compile Include="Model\CADElements\CADElementCommon.cs" />
+    <Compile Include="Model\CADElements\CADElementTrackCommon.cs" />
+    <Compile Include="Model\CADElements\CADElementTrackStraight.cs" />
     <Compile Include="Model\CADElements\Events\PositionDragEventArgs.cs" />
     <Compile Include="Model\CADElements\ICADElement.cs" />
     <Compile Include="Model\CADElements\Parts\Position.cs" />
